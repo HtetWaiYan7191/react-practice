@@ -8,7 +8,10 @@ const App = () => {
   return (
     <>
       <h1 className="main-title">Welcome To My React App</h1>
+      <div className="card-container row row-cols-3 gx-2 gy-4">
       <Product></Product>
+      </div>
+
       </>
   );
 };
