@@ -4,17 +4,18 @@ function Card({product}) {
   const [title, setTitle] = useState(product.title);
   const [showPrice, setShowPrice] = useState('Hide Price');
   const [productPrice, setProductPrice] = useState(product.price);
+  const [input, setInput] = useState('');
 
   const hidePrice = () => {
-    if(showPrice === 'Show Price') {
-      setShowPrice('Hide Price');
-      setProductPrice(product.price)
-    }
-    else {
-      setShowPrice('Show Price')
-      setProductPrice('')
-    }
+    setShowPrice(showPrice === 'Show Price' ? 'Hide Price' : 'Show Price');
+    setProductPrice(showPrice === 'Show Price' ? product.price : '');
   };
+
+  const changeTitle = (event) => {
+    setInput(event.target.value)
+    setTitle(event.target.value)
+  }
+  
 
   return (
     <div className="card" style={{width: "18rem"}}>
@@ -26,6 +27,7 @@ function Card({product}) {
       <a href="#" className="btn btn-primary" onClick={hidePrice} >{showPrice}</a>
       <span className='btn text-end'>{productPrice}</span>
       </div>
+      <input type="text" onChange={changeTitle} value={input} placeholder='Change Title' className='form-control my-3' />
       
     </div>
   </div>
