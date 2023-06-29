@@ -5,6 +5,8 @@ function Card({product}) {
   const [showPrice, setShowPrice] = useState('Hide Price');
   const [productPrice, setProductPrice] = useState(product.price);
   const [input, setInput] = useState('');
+  const [userName, setUserName] = useState('');
+  const [items, setItems] = useState([{name:'',id:1}]);
 
   const hidePrice = () => {
     setShowPrice(showPrice === 'Show Price' ? 'Hide Price' : 'Show Price');
@@ -14,6 +16,13 @@ function Card({product}) {
   const changeTitle = (event) => {
     setInput(event.target.value)
     setTitle(event.target.value)
+  }
+
+  const addUserName = () => {
+
+    setItems([...items, {name:userName}])
+    setUserName('')
+    setInput('')
   }
   
 
@@ -28,7 +37,11 @@ function Card({product}) {
       <span className='btn text-end'>{productPrice}</span>
       </div>
       <input type="text" onChange={changeTitle} value={input} placeholder='Change Title' className='form-control my-3' />
-      
+      <input type="text" className='form-control' value={userName} onChange={(e) => {setUserName(e.target.value)}}  placeholder=' Your Name' />
+      <button className='btn btn-primary my-3' onClick={addUserName}>Add Name</button>
+      {items.map((item, index) => (
+        <p key={index}>{item.name}</p>
+      ))}
     </div>
   </div>
   )
