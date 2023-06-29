@@ -9,11 +9,15 @@
 }
 
 .card-container {
+  width: 80%;
+  margin: 10px auto !important;
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(4,1fr);
   gap: 20px;
 }
-
+.card {
+  margin: 10px auto;
+}
 .card-text {
   height: 100px;
   overflow-y: scroll;
