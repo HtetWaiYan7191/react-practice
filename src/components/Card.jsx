@@ -7,6 +7,7 @@ function Card({product}) {
   const [input, setInput] = useState('');
   const [userName, setUserName] = useState('');
   const [items, setItems] = useState([{name:'',id:1}]);
+  const [titleColor, setTitleColor] = useState('text-primary');
 
   const hidePrice = () => {
     setShowPrice(showPrice === 'Show Price' ? 'Hide Price' : 'Show Price');
@@ -24,13 +25,18 @@ function Card({product}) {
     setUserName('')
     setInput('')
   }
+
+  const changeTitleColor = () => {
+    titleColor === 'text-primary' ? setTitleColor('text-danger') : setTitleColor('text-primary')
+    
+  }
   
 
   return (
     <div className="card" style={{width: "18rem"}}>
     <img src={product.image} className="card-img-top" alt="..."></img>
     <div className="card-body">
-      <h5 className="card-title text-truncate ">{title}</h5>
+      <h5 className={`card-title text-truncate ${titleColor} `}>{title}</h5>
       <p className="card-text">{product.description}</p>
       <div className="d-flex justify-content-between">
       <a href="#" className="btn btn-primary" onClick={hidePrice} >{showPrice}</a>
@@ -38,7 +44,10 @@ function Card({product}) {
       </div>
       <input type="text" onChange={changeTitle} value={input} placeholder='Change Title' className='form-control my-3' />
       <input type="text" className='form-control' value={userName} onChange={(e) => {setUserName(e.target.value)}}  placeholder=' Your Name' />
-      <button className='btn btn-primary my-3' onClick={addUserName}>Add Name</button>
+        <button className='btn btn-primary my-3 ' onClick={addUserName}>Add Name</button>
+      <button className='btn btn-primary' onClick={changeTitleColor} >Change Title Color</button>
+   
+  
       {items.map((item, index) => (
         <p key={index}>{item.name}</p>
       ))}
