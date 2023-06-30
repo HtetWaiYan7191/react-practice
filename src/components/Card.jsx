@@ -9,7 +9,8 @@ function Card({product}) {
   const [items, setItems] = useState([{name:'',id:1}]);
   const [titleColor, setTitleColor] = useState(true);
 
-  const hidePrice = () => {
+  const hidePrice = (e) => {
+    e.preventDefault();
     setShowPrice(showPrice === 'Show Price' ? 'Hide Price' : 'Show Price');
     setProductPrice(showPrice === 'Show Price' ? product.price : '');
   };
