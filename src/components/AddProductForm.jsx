@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 function AddProductForm({products, setProducts}) {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [image, setImage] = useState('');
     const [price, setPrice] = useState('');
+    const navigate = useNavigate();
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
@@ -20,6 +22,14 @@ function AddProductForm({products, setProducts}) {
         setImage('');
         setPrice("");
        
+    }
+
+    const goAboutPage = () => {
+      navigate('/about');
+    }
+
+    const goContactPage = () => {
+      navigate('/contact');
     }
   return (
     <form>
@@ -42,7 +52,10 @@ function AddProductForm({products, setProducts}) {
     <input type="text" value={price}  onChange={(e) => setPrice(e.target.value)} className="form-control" id="exampleInputPassword1"/>
   </div>
 
-  <button type="submit" onClick={onSubmitHandler} className="btn btn-primary">Submit</button>
+  <button type="submit" onClick={onSubmitHandler} className="btn btn-primary me-2">Submit</button>
+  <button type="submit" onClick={goAboutPage}  className="btn btn-primary me-2">About</button>
+  <button type="submit" onClick={goContactPage}  className="btn btn-primary me-2">Contact</button>
+
 </form>
   )
 }
