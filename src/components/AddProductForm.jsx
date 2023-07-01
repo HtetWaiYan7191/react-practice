@@ -25,11 +25,11 @@ function AddProductForm({products, setProducts}) {
     }
 
     const goAboutPage = () => {
-      navigate('/about');
+      navigate('/about',{state:{name:title}});
     }
 
     const goContactPage = () => {
-      navigate('/contact');
+      navigate('/contact', {state:{name:description}});
     }
   return (
     <form>
@@ -53,7 +53,7 @@ function AddProductForm({products, setProducts}) {
   </div>
 
   <button type="submit" onClick={onSubmitHandler} className="btn btn-primary me-2">Submit</button>
-  <button type="submit" onClick={goAboutPage}  className="btn btn-primary me-2">About</button>
+  <button type="submit" onClick={goAboutPage}   className="btn btn-primary me-2">About</button>
   <button type="submit" onClick={goContactPage}  className="btn btn-primary me-2">Contact</button>
 
 </form>
