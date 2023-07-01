@@ -52,9 +52,9 @@ function AddProductForm({products, setProducts}) {
     <input type="text" value={price}  onChange={(e) => setPrice(e.target.value)} className="form-control" id="exampleInputPassword1"/>
   </div>
 
-  <button type="submit" onClick={onSubmitHandler} className="btn btn-primary me-2">Submit</button>
-  <button type="submit" onClick={goAboutPage}   className="btn btn-primary me-2">About</button>
-  <button type="submit" onClick={goContactPage}  className="btn btn-primary me-2">Contact</button>
+  <button type="submit" onClick={onSubmitHandler} className="me-2 rounded-full">Submit</button>
+  <button type="submit" onClick={goAboutPage}   className="me-2 rounded-full">About</button>
+  <button type="submit" onClick={goContactPage}  className="me-2 rounded-full">Contact</button>
 
 </form>
   )
