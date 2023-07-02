@@ -11,9 +11,9 @@
 .card-container {
   width: 80%;
   margin: 10px auto !important;
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(4,1fr);
-  gap: 20px;
+  gap: 20px; */
 }
 .card {
   margin: 10px auto;
